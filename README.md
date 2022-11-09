@@ -4,7 +4,7 @@ Programa en C usando OpenMP que realiza el efecto espejo con 20 diferentes image
 Este código tiene la funcionalidad de poder invertir una imagen bmp expejeandola y cambiando los colores a una escala de grises, para esto se ha utilizado 
 
 
-```
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
