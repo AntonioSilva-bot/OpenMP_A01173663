@@ -1,6 +1,8 @@
 # OpenMP_A01173663
 Programa en C usando OpenMP que realiza el efecto espejo con 20 diferentes imagenes de más de 2000 pixeles por lado.
 
+En este código lo que se hace es espegear imagenes bmp para posteriormente poder ponerla a una escala de grises o 
+
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
