@@ -3,11 +3,14 @@ Programa en C usando OpenMP que realiza el efecto espejo con 20 diferentes image
 
 En este código lo que se hace es invertir imagenes bmp, este tambien cuenta con la capacidad de poder poner a escalas de grises o en su color la imagen invertida, este código funciona en el lenguaje c y las imagenes utilizadas son de un tamaño superior a 2000 pixeles.
 
-
+Para poder conseguir este efecto necesitamos utilizar las siguientes librerías:
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
+```
 
+En esta parte del código abrimos las imagenes para poder realizar el espejeo, como tambien guardamos los valores de las medidas de cada imagen, tambien se declara el nombre de salida del archivo y cómo este se llamará
+```cpp
 struct my_pixel{
   unsigned char r, g, b;
 };
@@ -30,7 +33,10 @@ int main()
     alto = (long)xx[24]*65536+(long)xx[23]*256+(long)xx[22];
     printf("largo img %li\n",alto);
     printf("ancho img %li\n",ancho);
+```
 
+Para poder realizar correctamente la inversión de la imagen es necesario el tomar encuenta el padding para que la imagen resultante no salga deformada, en esta parte del código es necesario el utilizar las medidas de la imagen inicial.
+```cpp
     unsigned char* arr_in = (unsigned char*)malloc(ancho*alto*3*sizeof(unsigned char));
     unsigned char* arr_out = (unsigned char*)malloc(ancho*alto*3*sizeof(unsigned char));
 
@@ -62,7 +68,9 @@ int main()
                 count = 0;
             }
 
-
+```
+Se guardan los valores de cada color (R,G,B) para poder invertir las imagenes, utilizando el padding para convertir la imagen en un multiplo de 4 y así respetar el formato bmp
+```cpp
     }
     for(int i = 0; i < alto; i++){
         for(int j = 0; j < (ancho*3); j+= 3){
